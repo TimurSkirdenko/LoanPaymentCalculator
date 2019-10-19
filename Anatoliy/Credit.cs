@@ -58,11 +58,11 @@ namespace Calculator
                     if (month % CommissionFrequency == 0)
                     {
                         AmountOfCommission = Math.Round(loanBalance * CommissionPercentage / 100.0, Settings.NumberSimbolsAfterComma);
-                        dataPrinting.DifferentiatedPaymentWithCommission(month, DateStart, Math.Round(monthlyPaymentPercent / Settings.CurrencyValue, Settings.NumberSimbolsAfterComma), BasicPayment, loanBalance, AmountOfCommission, Settings.Currency);
+                        dataPrinting.DifferentiatedPaymentWithCommission(month, DateStart, Math.Round(monthlyPaymentPercent / Settings.CurrencyValue, Settings.NumberSimbolsAfterComma), (BasicPayment + monthlyPaymentPercent), loanBalance, AmountOfCommission, Settings.Currency);
                     }
                     else
                     {
-                        dataPrinting.DifferentiatedPaymentWithoutCommission(month, DateStart, Math.Round(monthlyPaymentPercent / Settings.CurrencyValue, Settings.NumberSimbolsAfterComma), BasicPayment, loanBalance, Settings.Currency);
+                        dataPrinting.DifferentiatedPaymentWithoutCommission(month, DateStart, Math.Round(monthlyPaymentPercent / Settings.CurrencyValue, Settings.NumberSimbolsAfterComma), (BasicPayment + monthlyPaymentPercent), loanBalance, Settings.Currency);
                     }
                 }
             }
